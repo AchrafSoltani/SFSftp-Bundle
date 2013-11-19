@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 /**
  * Code Igniter
  *
@@ -35,6 +35,7 @@ class Sftp {
     var $private_key_url = '';
 
     var $buffer_size = 1024;
+    var $errors;
 
     /**
      * Constructor - Sets Preferences
@@ -43,6 +44,8 @@ class Sftp {
      */
     function Sftp($config = array())
     {
+        $this->errors = array();
+
         if (count($config) > 0)
         {
             $this->initialize($config);
@@ -311,8 +314,8 @@ class Sftp {
 
         while (!feof($stream))
         {
-            $contents .= @fread($stream, $this->buffer_size)
-                }
+            $contents .= @fread($stream, $this->buffer_size);
+        }
 
         $result = file_put_contents($locpath, $contents);
         @fclose($stream);
