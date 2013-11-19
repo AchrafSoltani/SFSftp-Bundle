@@ -1,0 +1,15 @@
+{
+    "name": "achrafsoltani/sfsftp",
+    "description": "A simple sftp library for symfony 2 or any composer compatible code",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Achraf Soltani",
+            "email": "soltani.achraf@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+
+    }
+}
