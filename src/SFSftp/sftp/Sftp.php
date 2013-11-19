@@ -502,9 +502,7 @@ class Sftp {
      */
     function _error($line)
     {
-        $CI =& get_instance();
-        $CI->lang->load('sftp');
-        show_error($CI->lang->line($line));
+        $this->errors[] = $line;
     }
 
 }
