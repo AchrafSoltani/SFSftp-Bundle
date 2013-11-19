@@ -1,4 +1,17 @@
 <?php
+
+/**
+ * Original copyright
+ *
+ * SFTP class using PHPs ssh2 features.
+ * This class utilises a fair bit from the CodeIgniter FTP class.
+ *
+ * @package     CodeIgniter
+ * @subpackage  Libraries
+ * @category    Sftp
+ * @author      Andy Lyon
+ */
+
  /**
  * title
  *
