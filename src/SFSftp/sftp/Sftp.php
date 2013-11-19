@@ -506,11 +506,11 @@ namespace
         // ------------------------------------------------------------------------
 
         /**
-         * Display error message
+         * Display error message and log them
          *
          * @access	private
          * @param	string
-         * @return	bool
+         * @return	void
          */
         function _error($line)
         {
