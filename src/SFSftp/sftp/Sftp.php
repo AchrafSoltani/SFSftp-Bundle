@@ -22,9 +22,15 @@
  * @author      Andy Lyon
  */
 
-namespace {
-    class Sftp {
 
+
+namespace
+{
+    use Monolog\Logger;
+    use Monolog\Handler\StreamHandler;
+
+    class Sftp
+    {
         var $hostname	= '';
         var $username	= '';
         var $password	= '';
@@ -37,6 +43,7 @@ namespace {
 
         var $buffer_size = 1024;
         var $errors;
+        var $logger;
 
         /**
          * Constructor - Sets Preferences
@@ -45,6 +52,10 @@ namespace {
          */
         function Sftp($config = array())
         {
+
+            $this->logger = new Logger('sftp');
+            $this->logger->pushHandler(new StreamHandler('app/logs/sftp.log', Logger::INFO));
+
             $this->errors = array();
 
             if (count($config) > 0)
@@ -52,7 +63,7 @@ namespace {
                 $this->initialize($config);
             }
 
-            log_message('debug', "SFTP Class Initialized");
+            $this->logger->addNotice("SFTP Class Initialized");
         }
 
         // --------------------------------------------------------------------
@@ -503,6 +514,7 @@ namespace {
          */
         function _error($line)
         {
+            $this->logger->addError($line);
             $this->errors[] = $line;
         }
 
